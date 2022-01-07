@@ -1,0 +1,5 @@
+const fs = require('fs');
+
+let jdata = fs.readFileSync('users.json');
+let users = JSON.parse(jdata);
+console.log(users);

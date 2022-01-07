@@ -1,0 +1,21 @@
+var empdiv=document.getElementById("empty-div")
+        var ourrequest=new XMLHttpRequest()
+
+        ourrequest.open('GET',"/users-data")
+    
+        ourrequest.onload=function(){
+        var ourdata=JSON.parse(ourrequest.responseText)
+    
+        renderHTML(ourdata)
+      }
+    
+        ourrequest.send()
+        function renderHTML(data){
+        var ourtext=""
+
+        for(var i=0;i<data.length;i++){
+        ourtext +="<p>"+"My name is "+data[i].name+" My Email is "+data[i].email+"</p>"
+    }
+    empdiv.insertAdjacentHTML('beforeend',ourtext)
+
+}
